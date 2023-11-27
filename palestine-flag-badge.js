@@ -34,9 +34,17 @@
       badge.style.transform = 'rotate(45deg)'
       badge.style.background = 'linear-gradient(-180deg, #000000 0%, #000000 33%, #FFFFFF 33%, #FFFFFF 66%, #149954 66%, #149954 100%)'
     }
-
-    badge.style.width = '300px'
-    badge.style.height = '84px'
+    
+    // Adjust size based on screen width
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth <= 600) {
+        badge.style.width = '200px';
+        badge.style.height = '42px';
+    } else {
+        badge.style.width = '300px';
+        badge.style.height = '84px';
+    }
     badge.style.position = 'fixed';
     badge.style.zIndex = '999';
 
