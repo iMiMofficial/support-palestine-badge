@@ -1,39 +1,45 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const createSupportButton = function() {
-      const button = document.createElement('div');
-      button.style.width = '300px';
-      button.style.height = '84px';
-      button.style.position = 'fixed';
-      button.style.zIndex = '999';
-      button.style.cursor = 'pointer';
-      button.target = '_blank';
+  var SWP__currentScript = document.currentScript || {};
+  var SWP__DOMReady = function(callback) {
+    document.readyState === 'interactive' || document.readyState === 'complete' ? callback() : document.addEventListener('DOMContentLoaded', callback);
+  };
+  SWP__DOMReady(function() {
+    const badge = document.createElement('div'); // Element variable name is set as badge
 
-      const url = '#'; // Replace it (#) with the donation page link
-      const title = 'Support Palestine';
-      const position = 'right';
+    // Parameters. Sent through the script tag
+    const url = SWP__currentScript.getAttribute('url');
+    const title = SWP__currentScript.getAttribute('title');
+    const position = SWP__currentScript.getAttribute('position');
 
-      button.title = title;
+    // Set custom title if neccessary
+    badge.title = title || 'Support Palestine';
 
-      if (url) {
-        button.addEventListener('click', function() {
-          window.open(url, '_blank');
-        });
-      }
+    // If URL is provided
+    if (url) {
+      badge.style.cursor = 'pointer'
+      badge.target = '_blank'
+      badge.addEventListener('click', function() {
+        window.open(url, '_blank')
+      })
+    }
 
-      if (position === 'right') {
-        button.style.right = '-80px';
-        button.style.bottom = '20px';
-        button.style.transform = 'rotate(135deg)';
-        button.style.background = 'linear-gradient(-360deg, #000000 0%, #000000 33%, #FFFFFF 33%, #FFFFFF 66%, #149954 66%, #149954 100%)';
-      } else {
-        button.style.left = '-80px';
-        button.style.bottom = '20px';
-        button.style.transform = 'rotate(45deg)';
-        button.style.background = 'linear-gradient(-180deg, #000000 0%, #000000 33%, #FFFFFF 33%, #FFFFFF 66%, #149954 66%, #149954 100%)';
-      }
+    // Set position (left, right)
+    if (position === 'right') {
+      badge.style.right = '-80px'
+      badge.style.bottom = '20px'
+      badge.style.transform = 'rotate(135deg)'
+      badge.style.background = 'linear-gradient(-360deg, #000000 0%, #000000 33%, #FFFFFF 33%, #FFFFFF 66%, #149954 66%, #149954 100%)'
+    } else {
+      badge.style.left = '-80px'
+      badge.style.bottom = '20px'
+      badge.style.transform = 'rotate(45deg)'
+      badge.style.background = 'linear-gradient(-180deg, #000000 0%, #000000 33%, #FFFFFF 33%, #FFFFFF 66%, #149954 66%, #149954 100%)'
+    }
 
-      button.setAttribute('id', 'support-palestine');
-      document.body.appendChild(button);
-    };
-    createSupportButton();
+    badge.style.width = '300px'
+    badge.style.height = '84px'
+    badge.style.position = 'fixed';
+    badge.style.zIndex = '999';
+
+    badge.setAttribute('id', 'support-palestine')
+    document.body.appendChild(badge);
   });
