@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
       button.style.cursor = 'pointer';
       button.target = '_blank';
 
-      const url = '#'; // Replace it with the donation page link
+      const url = '#'; // Replace it (#) with the donation page link
       const title = 'Support Palestine';
       const position = 'right';
 
