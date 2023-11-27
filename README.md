@@ -19,7 +19,7 @@ The Support Palestine Button is a customizable JavaScript component designed to 
 ### Installation
 
 ```
-<script src="https://cdn.jsdelivr.net/gh/iMiMofficial/support-palestine-badge/palestine-flag-badge.js" title="Support Palestine" url="#" position="left"></script>
+<script src="https://cdn.jsdelivr.net/gh/iMiMofficial/support-palestine-badge@v1.0.0/palestine-flag-badge.js" title="Support Palestine" url="#" position="left"></script>
 ```
 
 1. Copy the above script tag with its parameters and values.
